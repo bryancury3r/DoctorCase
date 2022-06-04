@@ -18,6 +18,11 @@
   font-size: 62.5%;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: 'DM Sans';
   font-size: 1.6rem;
@@ -32,6 +37,10 @@ body {
   
 }
 
+ul {
+  list-style-type: none;
+}
+
 /*========== HEADER =============*/
 header {
   
@@ -39,7 +48,7 @@ header {
 }
 header::before {
   content: "";
-  width: 100vw;
+  width: 100%;
   height: calc(108rem + var(--nav-height));
   background-color: var(--brand-light);
   display: block;
@@ -133,14 +142,39 @@ header > img {
 
 nav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 
   height: var(--nav-height);
-
-  
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+nav.scroll {
+  background: var(--primary-color);
+  width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path {
+  fill: white;
+}
+
+nav.scroll svg:nth-child(2) path {
+  stroke: white;
+}
+
+/*========== MENU-EXPANDED =============*/
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
 }
